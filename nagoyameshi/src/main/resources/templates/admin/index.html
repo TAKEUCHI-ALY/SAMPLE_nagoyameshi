@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+	<head>
+		<div th:replace="~{fragment :: meta}"></div>
+	
+		<div th:replace="~{fragment :: styles}"></div>
+	
+		<title>管理者ページ</title>
+	</head>
+	<body>
+		<div class="nagoyameshi-wrapper">
+			<!--ヘッダー-->
+			<div th:replace="~{fragment :: header}"></div>
+			
+			<main>
+				<div class="container pt-4 pb-5 nagoyameshi-container">
+					<div class="row justify-content-center">
+						<div class="col-3">
+							<div class="list-group">
+								<a th:href="@{/admin/restaurants}" class="list-group-item list-group-item-action">店舗一覧</a>
+								<a th:href="@{/admin/users}" class="list-group-item list-group-item-action">会員一覧</a>
+								<a th:href="@{/admin/categories}" class="list-group-item list-group-item-action">カテゴリ一覧</a>
+								<a th:href="@{/admin/company}" class="list-group-item list-group-item-action">会社概要</a>
+								<a th:href="@{/admin/term}" class="list-group-item list-group-item-action">利用規約</a>
+							</div>
+						</div>
+						
+						<div class="col container">
+							<div class="row justify-content-center">
+								<div class="col-xxl-9 col-xl-10 col-lg-11">
+									<div class="row row-cols-md-3 row-cols-2 g-3 mb-5">
+										<div class="col">
+											<div class="card bg-light">
+												<div class="card-body text-center">
+													<h5 class="card-title">総会員数</h5>
+													<p class="card-text" th:text="${totalMembers + '名'}"></p>
+												</div>
+											</div>
+										</div>
+										<div class="col">
+											<div class="card bg-light">
+												<div class="card-body text-center">
+													<h5 class="card-title">無料会員数</h5>
+													<p class="card-text" th:text="${totalFreeMembers + '名'}"></p>
+												</div>
+											</div>
+										</div>
+										<div class="col">
+											<div class="card bg-light">
+												<div class="card-body text-center">
+													<h5 class="card-title">有料会員数</h5>
+													<p class="card-text" th:text="${totalPaidMembers + '名'}"></p>
+												</div>
+											</div>
+										</div>
+										<div class="col">
+											<div class="card bg-light">
+												<div class="card-body text-center">
+													<h5 class="card-title">店舗数</h5>
+													<p class="card-text" th:text="${totalRestaurants + '件'}"></p>
+												</div>
+											</div>
+										</div>
+										<div class="col">
+											<div class="card bg-light">
+												<div class="card-body text-center">
+													<h5 class="card-title">総予約数</h5>
+													<p class="card-text" th:text="${totalReservations + '件'}"></p>
+												</div>
+											</div>
+										</div>
+										<div class="col">
+											<div class="card bg-light">
+												<div class="card-body text-center">
+													<h5 class="card-title">月間売上数</h5>
+													<p class="card-text" th:text="${#numbers.formatInteger(salesForThisMonth, 1, 'COMMA') + '円'}"></p>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>						
+						
+					</div>					
+				</div>
+			</main>
+			
+			<!--フッター-->
+			<div th:replace="~{fragment :: footer}"></div>
+		</div>
+		
+		<div th:replace="~{fragment :: scripts}"></div>
+	</body>
+</html>

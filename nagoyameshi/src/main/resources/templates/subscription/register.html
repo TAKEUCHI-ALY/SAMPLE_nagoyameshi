@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+	<head>
+		<div th:replace="~{fragment :: meta}"></div>
+	
+		<div th:replace="~{fragment :: styles}"></div>
+	
+		<title>有料プラン登録</title>
+	</head>
+	<body>
+		<div class="nagoyameshi-wrapper">
+			<!--ヘッダー-->
+			<div th:replace="~{fragment :: header}"></div>
+			
+			<main>
+				<div class="container pt-4 pb-5 nagoyameshi-container">
+					<div class="row justify-content-center">
+						<div class="col-xxl-9 col-xl-10 col-lg-11">
+							
+							<nav aria-label="breadcrumb" role="navigation">
+								<ol class="breadcrumb p-3 bg-light rounded-2">
+									<li class="breadcrumb-item"><a th:href="@{/}">ホーム</a></li>
+									<li class="breadcrumb-item"><a th:href="@{/user}">マイページ</a></li>
+									<li class="breadcrumb-item active" aria-current="page">有料プラン登録</li>
+								</ol>
+							</nav>
+							
+							<h1 class="mb-4 text-center">有料プラン登録</h1>
+							
+							<div th:if="${subscriptionMessage}" class="alert alert-info" role="alert">
+                                <span th:text="${subscriptionMessage}"></span>
+                            </div>
+							
+							<hr class="mb-4">
+							
+							<div class="card mb-4">
+								<div class="card-header text-center">
+									有料プランの内容
+								</div>
+								<ul class="list-group list-group-flush"> 
+									<li class="list-group-item">・当日の2時間前までならいつでも予約可能</li>
+									<li class="list-group-item">・店舗を好きなだけお気に入りに追加可能</li>
+									<li class="list-group-item">・レビューを全件閲覧可能</li>
+									<li class="list-group-item">・レビューを投稿可能</li>
+									<li class="list-group-item">・月額たったの300円！</li>
+								</ul>
+							</div>
+							
+							<hr class="mb-4">
+							
+							<form id="cardForm" method="post" th:action="@{/subscription/create}">
+								<div id="cardHolderNameError"></div>
+								<input class="nagoyameshi-card-holder-name mb-3" id="cardHolderName" type="text" placeholder="カード名義人" required>
+								
+								<div id="cardElementError"></div>
+								<div class="nagoyameshi-card-element mb-4" id="cardElement"></div>
+							</form>
+							
+							<div class="text-center mt-3">
+								<button class="btn text-white shadow-sm w-50 nagoyameshi-btn" id="cardButton">登録</button>
+							</div>
+						</div>
+					</div>
+				</div>
+			</main>
+			
+			<!--フッター-->
+			<div th:replace="~{fragment :: footer}"></div>
+		</div>
+		
+		<div th:replace="~{fragment :: scripts}"></div>
+        <script src="https://js.stripe.com/v3"></script>
+        <script th:src="@{/js/stripe.js}"></script>
+	</body>
+</html>

@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+	<head>
+		<div th:replace="~{fragment :: meta}"></div>
+		
+		<div th:replace="~{fragment :: styles}"></div>
+		
+		<title>パスワード再登録ページ</title>
+	</head>
+	<body>
+		<div class="nagoyameshi-wrapper">
+			
+			<!--ヘッダー-->
+			<div th:replace="~{fragment :: header}"></div>
+			
+			<main>
+				<div class="container pt-4 pb-5 nagoyameshi-container">
+					<div class="row justify-content-center">
+						<div class="col-xl-5 col-lg-6 col-md-8">
+							
+							<nav aria-label="breadcrumb" role="navigation">
+								<ol class="breadcrumb p-3 bg-light rounded-2">
+									<li class="breadcrumb-item"><a th:href="@{/}">ホーム</a></li>
+									<li class="breadcrumb-item active" aria-current="page">パスワード再設定</li>
+								</ol>
+							</nav>
+							
+							<div th:if="${errorMessage}" class="alert alert-danger">
+								<span th:text="${errorMessage}"></span>
+							</div>
+							
+							<h1 class="mb-4 text-center">パスワード再設定</h1>
+							
+							<hr class="mb-4">
+							
+							<div class="text-center mb-3">
+								ご登録中のメールアドレスを入力してください。
+							</div>
+							
+							<form method="post" th:action="@{/passwordreset}" th:object="${passwordResetForm}">
+								<div class="form-group row mb-3">
+									<div class="col">
+										<div th:if="${#fields.hasErrors('email')}" class="text-danger small mb-2" th:errors="*{email}"></div>
+										<input type="text" class="form-control" th:field="*{email}" autocomplete="email" placeholder="taro.samurai@example.com">
+									</div>
+								</div>
+								
+								<div class="form-group d-flex justify-content-center my-4">
+									<button type="submit" class="btn text-white shadow-sm w-50 nagoyameshi-btn">メール送信</button>
+								</div>
+							</form>
+							
+							<div class="text-center">
+								<a th:href="@{/login}">ログイン</a>
+							</div>
+							
+						</div>
+					</div>
+				</div>
+			</main>
+			
+			<!--フッター-->
+			<div th:replace="~{fragment :: footer}"></div>
+		</div>
+		
+		<div th:replace="~{fragment :: scripts}"></div>
+	</body>
+</html>

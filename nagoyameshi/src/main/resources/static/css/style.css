@@ -1,0 +1,203 @@
+html {
+	font-size: 20px;
+}
+
+
+body {
+	 /* Google Fonts */	
+	font-family: "M PLUS Rounded 1c", serif;
+ 	font-weight: 400;
+  	font-style: normal;
+  	background-color: antiquewhite;
+}
+
+h1 {
+	font-weight: bold;
+	font-size: 1.5rem;
+}
+
+h2 {
+	font-size: 1.475rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+}
+
+a {
+	color: #d91;
+	text-decoration: none ;
+}
+
+a:hover {
+	color: #407784;
+	text-decoration: underline;
+}
+
+footer {
+	width: 100%;
+	height: 60px;
+	position: absolute;
+	bottom: 0;
+}
+
+.nagoyameshi-wrapper {
+	min-height: 100vh;
+	position: relative;
+	padding-bottom: 60px;
+	box-sizing: border-box;
+}
+
+.nagoyameshi-navbar {
+	min-height: 60px;
+}
+
+.nagoyameshi-logo {
+	height: 30px;
+}
+
+.nagoyameshi-btn {
+	background-color: #a60 !important;
+	transition: 0.1s;
+}
+
+.nagoyameshi-btn:hover {
+	opacity: 0.8;
+}
+
+.nagoyameshi-page-link {
+	color: #a60;
+}
+
+.nagoyameshi-page-link:hover {
+  color: rgb(255, 128, 64);
+}
+
+.nagoyameshi-active {
+  background-color: #a60 !important;
+  border-color: #a60 !important;
+}
+
+.nagoyameshi-dropdown-item:active {
+	background-color: #5196a6;
+}
+
+.nagoyameshi-link-danger {
+	color: #f2594b;
+}
+
+.nagoyameshi-link-danger:hover {
+    color: #a63c3c;
+}
+
+.nagoyameshi-btn-danger {
+    background-color: #f2594b !important;
+    transition: 0.1s;
+}
+
+.nagoyameshi-btn-danger:hover {
+  opacity: 0.8;   
+}
+
+.nagoyameshi-vertical-card-image {
+	width: 100%;
+	height: 150px;
+	object-fit: cover;
+}
+
+.nagoyameshi-search-form {
+	max-width: 300px;
+}
+
+.nagoyameshi-card-link {
+	transition: 0.3s;
+}
+
+.nagoyameshi-card-link:hover {
+	opacity: 0.7;
+}
+
+/* クレジットカード番号入力フォーム */
+.nagoyameshi-card-holder-name,
+.nagoyameshi-card-element {
+  border-radius: .375rem;
+  padding: 12px;
+  border: 1px solid #ced4da;
+  height: 44px;
+  width: 100%;
+  background: white;
+}
+
+.nagoyameshi-card-holder-name {
+  font-family: sans-serif;
+  outline: none;
+}
+
+.nagoyameshi-card-error {
+  display: none;
+}
+
+/* 星評価ここから */
+.nagoyameshi-star-rating {
+  position: relative;
+  z-index: 0;
+  display: inline-block;
+  white-space: nowrap;
+  color: #cccccc;
+}
+
+.nagoyameshi-star-rating:before,
+.nagoyameshi-star-rating:after {
+  content: '★★★★★';
+}
+
+.nagoyameshi-star-rating:after {
+  position: absolute;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  overflow: hidden;
+  white-space: nowrap;
+  color: #f29f05;
+}
+
+.nagoyameshi-star-rating[data-rate="5.0"]:after {
+  width: 100%;
+}
+.nagoyameshi-star-rating[data-rate="4.5"]:after {
+  width: 90%;
+}
+.nagoyameshi-star-rating[data-rate="4.0"]:after {
+  width: 80%;
+}
+.nagoyameshi-star-rating[data-rate="3.5"]:after {
+  width: 70%;
+}
+.nagoyameshi-star-rating[data-rate="3.0"]:after {
+  width: 60%;
+}
+.nagoyameshi-star-rating[data-rate="2.5"]:after {
+  width: 50%;
+}
+.nagoyameshi-star-rating[data-rate="2.0"]:after {
+  width: 40%;
+}
+.nagoyameshi-star-rating[data-rate="1.5"]:after {
+  width: 30%;
+}
+.nagoyameshi-star-rating[data-rate="1.0"]:after {
+  width: 20%;
+}
+.nagoyameshi-star-rating[data-rate="0.5"]:after {
+  width: 10%;
+}
+.nagoyameshi-star-rating[data-rate="0.0"]:after {
+  width: 0%;
+}
+
+
+@media screen and (min-width: 1400px) {
+.nagoyameshi-container  {
+	max-width: 1200px;
+}
+}
